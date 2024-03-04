@@ -1,0 +1,16 @@
+
+#WorkdayAuto {
+  background: url(randoncat.png) no-repeat center  / 150px 150px;
+  height:150px;
+  width: 150px;
+  margin-left: 0px;
+}
+
+body {
+    min-height: 100%;
+    line-height: 1.75;
+    background-color: #d9c698;
+	color: #d9c698;
+	font-family: "Helvetica";
+	margin-left: 10px;
+}
