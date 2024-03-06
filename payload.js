@@ -1,6 +1,15 @@
 const obj = document.querySelectorAll('input[id^="input-"]');
 const textAreas = document.querySelectorAll('textarea[id^="input-"]');
+const bareas = document.querySelectorAll('button[id^="input-"]');
+//Reads and filters for only input fields
 
+
+/* for (let name of obj) {
+  console.log(name.outerHTML);
+}
+for (let name of bareas) {
+  console.log(name.outerHTML);
+} */
 let str = null;
 let numJobs = 0;
 let numJobTitle = 0;
@@ -57,9 +66,10 @@ const exampleUserData = {
 console.log('======================================');
 console.log(exampleUserData.jobTitle.length);
 console.log(document.title);
+console.log("test1");
 
 numJobs = exampleUserData.jobTitle.length;
-
+//Slices inputs to filter for the correct matching field, then calls a value = _ to replace
 for (let j = 0; j < textAreas.length; j++) {
   str = textAreas[j].outerHTML;
   str = str.slice(str.indexOf('data-automation-id'), str.length);
@@ -72,6 +82,7 @@ for (let j = 0; j < textAreas.length; j++) {
 
 for (let i = 0; i < obj.length; i++) {
   str = obj[i].outerHTML;
+  //console.log(str);
   str = str.slice(str.indexOf('data-automation-id'), str.length);
   str = str.slice(str.indexOf('\"') + 1, str.length);
   str = str.slice(0, str.indexOf('\"'));
@@ -79,6 +90,18 @@ for (let i = 0; i < obj.length; i++) {
 
   enterUserData(str, exampleUserData, obj[i]);
 }
+
+for (let i = 0; i < bareas.length; i++) {
+  str = bareas[i].outerHTML;
+  //console.log(str);
+  str = str.slice(str.indexOf('data-automation-id'), str.length);
+  str = str.slice(str.indexOf('\"') + 1, str.length);
+  str = str.slice(0, str.indexOf('\"'));
+  console.log(str);
+
+  enterUserData(str, exampleUserData, bareas[i]);
+}
+
 
 console.log(obj.length);
 
@@ -91,11 +114,13 @@ function enterUserData(type, userData, element) {
   }
   
   else if (type === 'addressSection_countryRegion') {
-    console.log('testprint')
-    element.value = '218a720b28a74c67b5c6d42c00bdadfa';
+    element.value = "218a720b28a74c67b5c6d42c00bdadfa";
+    element.innerHTML = "Ontario";
   }
   else if (type === 'legalNameSection_lastName') {
-    element.value = exampleUserData.lastname;
+    //element.value = exampleUserData.lastname;
+    document.getElementById("input-6").value = "pringle";
+    document.getElementById("input-6").click();
   }
   else if (type === 'addressSection_addressLine1') {
     element.value = exampleUserData.address;
