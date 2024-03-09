@@ -106,6 +106,12 @@ for (let i = 0; i < bareas.length; i++) {
 console.log(obj.length);
 
 function enterUserData(type, userData, element) {
+  switch(type){
+    case '_':
+      break;
+  }
+  //element.value = exampleUserData[type]
+  
   if (type === 'legalNameSection_firstName') {
     element.value = exampleUserData.firstname;
   }
